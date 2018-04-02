@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitymain);
-        viewPager=(ViewPager)findViewById(R.id.navigation);
+        viewPager=(ViewPager)findViewById(R.id.view);
         pagerAdapter = new BottomBarAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragments(ShareFragment.newInstance("fragment1","share"));
-        pagerAdapter.addFragments(AddFragment.newInstance("fragment2","add"));
-        pagerAdapter.addFragments(GalleryFragment.newInstance("fragment3","gallery"));
-        pagerAdapter.addFragments(ProfileFragment.newInstance("fragment4","profile"));
+        pagerAdapter.addFragments(ShareFragment.newInstance());
+        pagerAdapter.addFragments(AddFragment.newInstance());
+        pagerAdapter.addFragments(GalleryFragment.newInstance());
+        pagerAdapter.addFragments(ProfileFragment.newInstance());
         viewPager.setAdapter(pagerAdapter);
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
