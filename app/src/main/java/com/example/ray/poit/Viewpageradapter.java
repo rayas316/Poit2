@@ -10,9 +10,9 @@ import android.view.ViewGroup;
  * Created by ray on 2018/04/02.
  */
 
-public abstract class SmartFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
+public abstract class Viewpageradapter extends FragmentStatePagerAdapter {
     private SparseArray<Fragment>registerFragments = new SparseArray<Fragment>();
-    public SmartFragmentStatePagerAdapter(FragmentManager fragmentManager){
+    public Viewpageradapter(FragmentManager fragmentManager){
         super(fragmentManager);
     }
     @Override
