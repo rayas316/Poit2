@@ -21,11 +21,10 @@ public class MainActivity extends AppCompatActivity {
         viewPager=(ViewPager)findViewById(R.id.view);
         pagerAdapter = new BottomBarAdapter(getSupportFragmentManager());
         pagerAdapter.addFragments(ShareFragment.newInstance());
-        pagerAdapter.addFragments(AddFragment.newInstance());
         pagerAdapter.addFragments(GalleryFragment.newInstance());
+        pagerAdapter.addFragments(AddFragment.newInstance());
         pagerAdapter.addFragments(ProfileFragment.newInstance());
         viewPager.setAdapter(pagerAdapter);
-
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -43,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"gallerybutton",Toast.LENGTH_SHORT).show();
                         break;
 
-                    case R.id.navigation_profile:
-                        viewPager.setCurrentItem(2);
-                        Log.d("押したボタン","profilebutton");
-                        Toast.makeText(getApplicationContext(),"profilebutton",Toast.LENGTH_SHORT).show();
-                        break;
-
                     case R.id.navigation_add:
-                        viewPager.setCurrentItem(3);
+                        viewPager.setCurrentItem(2);
                         Log.d("押したボタン","addbutton");
                         Toast.makeText(getApplicationContext(), "addbutton", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.navigation_profile:
+                        viewPager.setCurrentItem(3);
+                        Log.d("押したボタン","profilebutton");
+                        Toast.makeText(getApplicationContext(),"profilebutton",Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return true;
