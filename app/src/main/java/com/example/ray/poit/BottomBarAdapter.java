@@ -21,7 +21,7 @@ public class BottomBarAdapter extends Viewpageradapter {
     }
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return fragments.get(position);
     }
 
     @Override
