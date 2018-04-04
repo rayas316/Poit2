@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     tools:context="com.example.ray.poit.GalleryFragment">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       >
+       <EditText
+           android:id="@+id/editText"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:textColor="#000000"/>
+
+       <Button
+           android:text="送る"
+           android:id="@+id/button"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:onClick="send" />
+
+   </LinearLayout>
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
 </FrameLayout>

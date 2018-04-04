@@ -12,6 +12,8 @@ public class GalleryFragment extends Fragment {
         GalleryFragment frag = new GalleryFragment();
         return frag;
     }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,4 +24,5 @@ public class GalleryFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_gallery, container, false);
     }
+
 }
