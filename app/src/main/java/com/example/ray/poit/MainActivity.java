@@ -97,33 +97,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void capture(View v) {
-        //AddFragment aaa = (AddFragment) pagerAdapter.getItem(2);
-        //aaa.setBitmap();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, REQUEST_CODE_CAMERA);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-        if (resultCode == RESULT_OK) {
-
-            if(requestCode == REQUEST_CODE_CAMERA){
-                Uri uri = null;
-                if (intent != null) {
-                    uri = intent.getData();
-                    try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                        AddFragment test = (AddFragment) pagerAdapter.getItem(2);
-                        test.imageView.setImageBitmap(bitmap);
-                        //imageView.setImageBitmap(bitmap);
-                    }catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_CAMERA) {
+            Bitmap bitmap;
+            // cancelしたケースも含む
+            if( data.getExtras() == null){
+                Log.d("debug","cancel ?");
+                return;
             }
-            else if(requestCode == RESULT_CANCELED){
-                Toast.makeText(MainActivity.this,"キャンセル",Toast.LENGTH_SHORT).show();
+            else {
+                bitmap = (Bitmap) data.getExtras().get("data");
+                ImageView img = findViewById(R.id.imageView1);
+                img.setImageBitmap(bitmap);
             }
         }
     }
